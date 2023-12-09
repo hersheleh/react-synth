@@ -3,11 +3,18 @@ export default function Square() {
   return (
     <div>
       <button className="square">X</button>
-      <div className="knob"></div>
+      <Knob />
     </div>
   );
 }
 
 function Knob() {
-  return <input type="range" />
+  return (
+    <span className="knob-outer">
+      <span className="knob-inner">
+        <span className="dial">
+        </span>
+      </span>
+    </span>
+  )
 }
