@@ -15,12 +15,10 @@ export default function Square() {
 function Knob() {
 
   const [rotation, setRotation] = useState(0);
-  const [transform, setTransform] = useState(
-    `rotateZ(${rotation}) scale(50%, 10%) translate(50%)`);
 
-  function moveDial(event: WheelEvent) {
+  function scrollWheelRotate(event: WheelEvent) {
     // console.log(`ScrollWheel ${event.deltaX} ${event.deltaY} ${event.deltaZ}`);
-    let newRotation = Math.abs((rotation + (event.deltaY-115)) % 360)
+    let newRotation = (rotation + (event.deltaY/12) % 360)
     setRotation(newRotation);
     console.log(newRotation);
     // setTransform(`rotateZ(${newRotation}) scale(50%, 10%) translate(50%)`);
@@ -31,7 +29,7 @@ function Knob() {
     <span className="knob-outer">
       <span
         className="knob-inner"
-        onWheel={moveDial}>
+        onWheel={scrollWheelRotate}>
         <span
           style={{ transform:  `rotateZ(${rotation}deg) scale(50%, 10%) translate(50%)`}}
           // onMouseDown={moveDial}
