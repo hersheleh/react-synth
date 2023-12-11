@@ -1,0 +1,2 @@
+* A synthesizer made using react
+This is a web based synthesizer made using react
