@@ -2,11 +2,11 @@ import type { WheelEvent, MouseEvent, ChangeEvent } from "react";
 import { useState, useRef } from 'react';
 
 
-function Knob() {
+export default function Knob() {
 
   const [rotation, setRotation] = useState(0);
   let [mouseDown, setMouseDown] = useState(false);
-  const [mousePosition, setMousePosition] = useState([0,0]);
+  // const [mousePosition, setMousePosition] = useState([0,0]);
   const knobElement = useRef<HTMLSpanElement>(null);
 
   function scrollWheelRotate(event: WheelEvent) {
@@ -20,7 +20,7 @@ function Knob() {
     clickRotate(event);
   }
 
-  function mouseDownFalse(event: MouseEvent) {
+  function mouseDownFalse() {
     setMouseDown(false);
   }
 
@@ -55,9 +55,10 @@ function Knob() {
 
   return (
     <div>
-      <div>
-        Mouse Position: ({mousePosition[0]} {mousePosition[1]})
-      </div>
+      { // <div>
+        //   Mouse Position: ({mousePosition[0]} {mousePosition[1]})
+        // </div>
+      }
       <span
         className="knob-outer"
         onMouseLeave={mouseDownFalse}
