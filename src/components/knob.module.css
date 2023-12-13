@@ -1,0 +1,38 @@
+.knob_outer {
+    height: 40px;
+    width: 40px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.knob_inner {
+    transform-origin: center;
+    width: inherit;
+    height: inherit;
+    transform: translate(50%, 50%);
+    transform: scale(90%, 90%);
+    /* top: 25%; */
+    /* left: 25%; */
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dial {
+    width: inherit;
+    height: inherit;
+    transform-origin: center;
+    transform: rotateZ(260deg) scale(50%, 10%) translate(50%);
+    background-color: black;
+    display: inline-block;
+}
+
+/* .dial_rotate { */
+/*     min-width: inherit; */
+/*     min-height: inherit; */
+/*     background-color: black; */
+/*     transform-origin: left; */
+/*     /\* transform: translateX(50%); *\/ */
+/*     display: inline-block; */
+/* } */

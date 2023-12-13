@@ -1,6 +1,6 @@
 import type { WheelEvent, MouseEvent, ChangeEvent } from "react";
 import { useState, useRef } from 'react';
-
+import style from './knob.module.css';
 
 export default function Knob() {
 
@@ -17,6 +17,7 @@ export default function Knob() {
   function mouseDownTrue(event: MouseEvent) {
     setMouseDown(true);
     mouseDown = true;
+    document.addEventListener("mouseup", mouseDownFalse, {once: true});
     clickRotate(event);
   }
 
@@ -54,24 +55,25 @@ export default function Knob() {
 
 
   return (
-    <div>
+    <>
       { // <div>
         //   Mouse Position: ({mousePosition[0]} {mousePosition[1]})
         // </div>
       }
       <span
-        className="knob-outer"
-        onMouseLeave={mouseDownFalse}
+        className={style.knob_outer}
+        // onMouseLeave={mouseDownFalse}
       >
         <span
-          className="knob-inner"
+          className={style.knob_inner}
           onWheel={scrollWheelRotate}
           ref={knobElement}
           onMouseMove={clickRotate}
           onMouseDown={mouseDownTrue}
-          onMouseUp={mouseDownFalse}>
+          // onMouseUp={mouseDownFalse}
+        >
           <span
-            className="dial"
+            className={style.dial}
             style={{
               transform: `rotateZ(${rotation
                 }deg) scale(50%, 10%) translate(50%)`
@@ -79,7 +81,8 @@ export default function Knob() {
           </span>
         </span>
       </span>
-      {rotation}
+      {/* rotation */}
+      {/*
       <input
         className="rotSlider"
         type="range"
@@ -87,6 +90,7 @@ export default function Knob() {
         max="180"
         value={rotation}
         onChange={rotateDial} />
-    </div>
+       */}
+    </>
   )
 }
